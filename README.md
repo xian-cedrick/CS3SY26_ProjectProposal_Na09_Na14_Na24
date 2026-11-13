@@ -3,10 +3,10 @@
 
 ## Project Proposal Template:
 
-### Project Title or Name of the Application	:
+### Project Title or Name of the Application	: Physics Force Calculator
 ### Section			   	      : Sodium
 ### Group Members			    : Dela Cruz, Gardose, Sinno
-### Date (Proposal Date)  : Nov 6, 2026
+### Date (Proposal Date)  : Nov 13, 2026
 
 ### Project Description:
 
