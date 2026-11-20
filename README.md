@@ -32,6 +32,7 @@ Interactions:
 - Used by another class, PhySystem, which stores Force objects and reads each object’s axis and get_signed_component() to calculate net forces.
   
 Feature: Gives every force the same structure, so each one has a label, an axis, and a direction sign.
+
 Expected output: The signed value of a force (positive or negative) through get_signed_component().
 
 _Class 2: PhySystem:_
@@ -59,6 +60,7 @@ Interactions:
 - It groups the forces by their axis (x vs. y): When calculating net force along the x-axis (calculate_fnet_x()) or y-axis (calculate_fnet_y()), PhySystem looks at each Force object's axis and pulls its signed component (get_signed_component()).
   
 Feature: Collects all forces acting on the object and combines them, for flat or inclined surfaces.
+
 Expected output: Net force along the x-axis (N), net force along the y-axis (N), and acceleration (m/s²).
 
 _Class 3: AppliedForce(Force):_
@@ -82,6 +84,7 @@ Interactions:
 - Produces AppliedForce components via calculate_components() for angled forces so each component (x and y) can be registered in PhySystem through add_force().
 
 Feature: Lets the user enter a push or pull, with an angle measured from the horizontal or vertical.
+
 Expected output: The force’s x- and y-components (N).
 
 _Class 4: Weight(Force)_
@@ -105,6 +108,7 @@ Interactions:
 - Registered in PhySystem via add_force() so its magnitude on a flat plane is included or both its x- and y-components participate in calculate_fnet_x(), calculate_fnet_y(), and calculate_acceleration().
 
 Feature: Computes the weight of the object using its mass and gravity (9.81 m/s² by default), including inclined surfaces.
+
 Expected output: Weight in N, or its parallel and perpendicular components on an incline, always pointing down (-).
 
 _Class 5: NormalForce(Force)_
@@ -123,6 +127,7 @@ Interactions:
 - Registered in PhySystem net force and acceleration calculations once add_force() is used.
   
 Feature: Lets the user enter the normal force from the surface.
+
 Expected output: The normal force in N, pointing away from the surface (+).
 
 _Class 6: FrictionForce(Force)_
@@ -156,6 +161,7 @@ Interactions:
 - Registered in PhySystem via add_forces().
 
 Feature: Computes friction for an object that is not yet moving.
+
 Expected output: Static friction in N, up to the maximum value (μs × N).
 
 _Class 8: KineticFriction(FrictionForce)_
@@ -172,6 +178,7 @@ Interactions:
 - Registered in PhySystem via add_forces().
 
 Feature: Computes friction for an object that is already moving.
+
 Expected output: Kinetic friction in N (μk × N), opposite to the motion.
 
 User Interface (UI)
