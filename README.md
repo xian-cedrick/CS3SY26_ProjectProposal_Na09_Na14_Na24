@@ -36,6 +36,7 @@ Feature: Gives every force the same structure, so each one has a label, an axis,
 
 Expected output: The signed value of a force (positive or negative) through get_signed_component().
 
+
 _Class 2: PhySystem:_
 - This class represents the physical setup—it holds the object’s mass, the surface’s inclined angle, and the list of the forces acting on the object. It will compute the net forces as well as the acceleration.
 
@@ -64,6 +65,7 @@ Feature: Collects all forces acting on the object and combines them, for flat or
 
 Expected output: Net force along the x-axis (N), net force along the y-axis (N), and acceleration (m/s²).
 
+
 _Class 3: AppliedForce(Force):_
 - It stores how strong the force is, its angle, and which axis the angle is measured from (_reference_axis), and the stuff inherited from abstract base class, Force.
   
@@ -87,6 +89,7 @@ Interactions:
 Feature: Lets the user enter a push or pull, with an angle measured from the horizontal or vertical.
 
 Expected output: The force’s x- and y-components (N).
+
 
 _Class 4: Weight(Force)_
 - It stores the object's mass (_mass), gravity (_gravity, defaulting to 9.81), and the ramp angle (_inclined_angle), and the stuff inherited from abstract base class, Force.
@@ -112,6 +115,7 @@ Feature: Computes the weight of the object using its mass and gravity (9.81 m/s�
 
 Expected output: Weight in N, or its parallel and perpendicular components on an incline, always pointing down (-).
 
+
 _Class 5: NormalForce(Force)_
 - It stores just how strong the force is(_magnitude), and the stuff inherited from abstract base class, Force.
   
@@ -131,6 +135,7 @@ Feature: Lets the user enter the normal force from the surface.
 
 Expected output: The normal force in N, pointing away from the surface (+).
 
+
 _Class 6: FrictionForce(Force) ⇐ Abstract Base Class
 
 Attributes:
@@ -146,7 +151,9 @@ Interactions:
 - Gets its coefficient and normal force from the user’s input.
   
 Feature: Holds the coefficient and normal force that both types of friction share.
+
 Expected output: None.
+
 
 _Class 7: StaticFriction(FrictionForce)_
 	
@@ -164,6 +171,7 @@ Interactions:
 Feature: Computes friction for an object that is not yet moving.
 
 Expected output: Static friction in N, up to the maximum value (μs × N).
+
 
 _Class 8: KineticFriction(FrictionForce)_
 
