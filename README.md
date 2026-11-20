@@ -15,7 +15,8 @@ A brief summary of the project description and the need for it:
 **Description of system components, features, and expected outputs:**
 
 _Class 1: Force (ABC): ⇐ Abstract Base Class_
-The blueprint for any single force acting on an object which uses the abc module to import ABC and abstractmethod.
+- The blueprint for any single force acting on an object which uses the abc module to import ABC and abstractmethod.
+  
 Attributes:
 - _label: str (name or type of force)
 - _axis: str (coordinate axis of force, the x- or y-axis, aligned with the type of surface: horizontal/vertical on a flat plane, respectively; parallel/perpendicular on an inclined 			plane, respectively.)
