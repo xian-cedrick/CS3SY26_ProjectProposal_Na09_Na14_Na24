@@ -131,7 +131,7 @@ Feature: Lets the user enter the normal force from the surface.
 
 Expected output: The normal force in N, pointing away from the surface (+).
 
-_Class 6: FrictionForce(Force)_
+_Class 6: FrictionForce(Force) ⇐ Abstract Base Class
 
 Attributes:
 - _coefficient: float 
