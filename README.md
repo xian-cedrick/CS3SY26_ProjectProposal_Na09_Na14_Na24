@@ -17,15 +17,15 @@ A brief summary of the project description and the need for it:
 _Class 1: Force (ABC): ⇐ Abstract Base Class_
 The blueprint for any single force acting on an object which uses the abc module to import ABC and abstractmethod.
 Attributes:
-	_label: str (name or type of force)
-	_axis: str (coordinate axis of force, the x- or y-axis, aligned with the type of surface: horizontal/vertical on a flat plane, respectively; parallel/perpendicular on an inclined 			plane, respectively.)
-	_sign: int (direction sign along the axis which a force is on: for flat and inclined planes, on the x-axis, +1 is to the right/up the inclined plane, -1 is to the left/down the 			inclined plane; on the y-axis, +1 if directed up/away from the inclined plane, -1 if directed down/into the inclined plane.)
+- _label: str (name or type of force)
+- _axis: str (coordinate axis of force, the x- or y-axis, aligned with the type of surface: horizontal/vertical on a flat plane, respectively; parallel/perpendicular on an inclined 			plane, respectively.)
+- _sign: int (direction sign along the axis which a force is on: for flat and inclined planes, on the x-axis, +1 is to the right/up the inclined plane, -1 is to the left/down the 			inclined plane; on the y-axis, +1 if directed up/away from the inclined plane, -1 if directed down/into the inclined plane.)
 	
 Methods:
-	calculate_magnitude() -> float @abstractmethod 
-		- forces each concrete subclass to define its formula for its magnitude.
-	get_signed_component() -> float (getter method)
-		- returns self._sign * self.calculate_magnitude() so directional sign is applied and addresses mistakes in sign-convention
+- calculate_magnitude() -> float @abstractmethod 
+	- forces each concrete subclass to define its formula for its magnitude.
+- get_signed_component() -> float (getter method)
+	- returns self._sign * self.calculate_magnitude() so directional sign is applied and addresses mistakes in sign-convention
 		
 Interactions:
 - Inherited by force subclasses and each of them overriding calculate_magnitude()
@@ -38,20 +38,20 @@ _Class 2: PhySystem:_
 - This class represents the physical setup—it holds the object’s mass, the surface’s inclined angle, and the list of the forces acting on the object. It will compute the net forces as well as the acceleration.
 
 Attributes:
-	_mass: float (mass of the object in kilograms, kg).
-	_inclined_angle: float (surface angle in degrees—0.0 for flat planes, and greater than 0.0 for inclined planes)
-	_forces: list[Force] (this stores the forces in the system)
+- _mass: float (mass of the object in kilograms, kg).
+- _inclined_angle: float (surface angle in degrees—0.0 for flat planes, and greater than 0.0 for inclined planes)
+- _forces: list[Force] (this stores the forces in the system)
 	
 Methods: 
-	add_force(force: Force) -> None 
-		- adds a Force object to _forces.
-	calculate_fnet_x() -> float 
-		- computes the net force along the x-axis (horizontal on a flat plane; parallel to the inclined surface when _inclined_angle > 0.0)
-	calculate_fnet_y() -> float
-		- computes the net force along the y-axis (vertical on a flat plane; perpendicular to the inclined surface when _inclined_angle > 0.0)
-	calculate_acceleration() -> float
-		- computes acceleration along the x-axis using the result of calculate_fnet_x() and _mass.
-		- uses the formula a = fnet_x / _mass
+- add_force(force: Force) -> None 
+	- adds a Force object to _forces.
+- calculate_fnet_x() -> float 
+	- computes the net force along the x-axis (horizontal on a flat plane; parallel to the inclined surface when _inclined_angle > 0.0)
+- calculate_fnet_y() -> float
+	- computes the net force along the y-axis (vertical on a flat plane; perpendicular to the inclined surface when _inclined_angle > 0.0)
+- calculate_acceleration() -> float
+	- computes acceleration along the x-axis using the result of calculate_fnet_x() and _mass.
+	- uses the formula a = fnet_x / _mass
 		
 Interactions:
 - Composes or manages Force objects by accepting Force objects via add_force() and separates their "x" and "y" signed components using _inclined_angle in order to interpret the axes (horizontal or vertical | parallel or perpendicular) and compute net forces and acceleration.
@@ -65,17 +65,17 @@ _Class 3: AppliedForce(Force):_
 - It stores how strong the force is, its angle, and which axis the angle is measured from (_reference_axis), and the stuff inherited from abstract base class, Force.
   
 Attributes: 
-	_magnitude: float 
-	_angle: float
-	_reference_axis
+- _magnitude: float 
+- _angle: float
+- _reference_axis: str
 
 Methods:
-	calculate_magnitude() -> float
-		- returns self._magnitude
-	calculate_components() -> tuple[float, float] (the tuple contains the x- and y-components, respectively.
-		- resolves an angled applied force into its x and y-components using trigonometry.
-		- If _reference_axis is from the horizontal: Fx=F cos  ; and, Fy=F sin 
-		- If _reference_axis is from the vertical: Fx=F sin  ; and, Fy=F cos 
+- calculate_magnitude() -> float
+	- returns self._magnitude
+- calculate_components() -> tuple[float, float] (the tuple contains the x- and y-components, respectively.
+	- resolves an angled applied force into its x and y-components using trigonometry.
+	- If _reference_axis is from the horizontal: Fx=F cos  ; and, Fy=F sin 
+	- If _reference_axis is from the vertical: Fx=F sin  ; and, Fy=F cos 
 		
 Interactions:
 - Inherits from Force and uses the method get_signed_component() so direction signs are consistently applied
@@ -88,9 +88,9 @@ _Class 4: Weight(Force)_
 - It stores the object's mass (_mass), gravity (_gravity, defaulting to 9.81), and the ramp angle (_inclined_angle), and the stuff inherited from abstract base class, Force.
   
 Attributes: 
-	_mass: float 
-	_gravity: float = 9.81
-	_inclined_angle: float
+- _mass: float 
+- _gravity: float = 9.81
+- _inclined_angle: float
 
 Methods:
 	calculate_magnitude() -> float
@@ -111,7 +111,7 @@ _Class 5: NormalForce(Force)_
 - It stores just how strong the force is(_magnitude), and the stuff inherited from abstract base class, Force.
   
 Attributes:
-	_magnitude: float
+- _magnitude: float
 
 Methods:
 	calculate_magnitude() -> float
@@ -128,8 +128,8 @@ Expected output: The normal force in N, pointing away from the surface (+).
 _Class 6: FrictionForce(Force)_
 
 Attributes:
-	_coefficient: float 
-	_normal_force: float
+- _coefficient: float 
+- _normal_force: float
 	
 Methods:
 	calculate_magnitude() -> float
