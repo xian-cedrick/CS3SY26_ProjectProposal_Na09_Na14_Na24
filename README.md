@@ -3,7 +3,7 @@
 
 ## Project Proposal Template:
 
-### Project Title or Name of the Application	: Physics Force Calculator
+### Project Title or Name of the Application	: PhyFC: Physics Force Calculator
 ### Section			   	      : Sodium
 ### Group Members			    : Dela Cruz, Gardose, Sinno
 ### Date (Proposal Date)  : Nov 13, 2026
