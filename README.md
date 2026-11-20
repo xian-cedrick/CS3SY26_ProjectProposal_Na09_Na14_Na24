@@ -114,8 +114,8 @@ Attributes:
 - _magnitude: float
 
 Methods:
-	calculate_magnitude() -> float
-		- returns self._magnitude 
+- calculate_magnitude() -> float
+	- returns self._magnitude 
 		
 Interactions:
 - Inherits from Force and uses get_signed_component() so its perpendicular direction on inclined planes as well as on flat surfaces is consistently applied.
@@ -132,8 +132,8 @@ Attributes:
 - _normal_force: float
 	
 Methods:
-	calculate_magnitude() -> float
-		- overriden by subclasses
+- calculate_magnitude() -> float
+	- overriden by subclasses
 		
 Interactions:
 - Inherits from Force and uses get_signed_component() so its direction is consistently applied.
@@ -147,8 +147,8 @@ _Class 7: StaticFriction(FrictionForce)_
 Attributes: (inherited from FrictionForce)
 
 Methods:
-	calculate_magnitude() -> float
-		- computes maximum static friction using fs,=sN, or equals the applied force up to that maximum.
+-	calculate_magnitude() -> float
+	- computes maximum static friction using fs,=sN, or equals the applied force up to that maximum.
 		
 Interactions:
 - Inherits from FrictionForce.
@@ -163,8 +163,8 @@ _Class 8: KineticFriction(FrictionForce)_
 Attributes: (inherited from FrictionForce)
 
 Methods:
-	calculate_magnitude() -> float
-		- computes kinetic friction using fk=kN, with its direction opposing the object’s motion.
+-	calculate_magnitude() -> float
+	- computes kinetic friction using fk=kN, with its direction opposing the object’s motion.
 		
 Interactions:
 - Inherits from FrictionForce.
